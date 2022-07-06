@@ -22,6 +22,8 @@
     /* colours */
     --clr-dark-grey: rgb(56, 62, 73);
     --clr-light-grey:#d1d1d188;
+    --clr-blue: rgb(48, 114, 235);
+    --clr-red: rgb(211, 0, 0);
     --clr-white: #ffffff;
 
 
@@ -40,6 +42,37 @@ body {
     border-radius: 10px;
     padding: 15px 30px;
     color: var(--clr-dark-grey);
+}
+
+.btn-green {
+    border: 1px solid green;
+    color: var(--clr-white);
+    background-color: green;
+}
+
+.btn-blue {
+    border: 1px solid var(--clr-blue);
+    color: var(--clr-white);
+    background-color: var(--clr-blue);
+}
+
+.btn-red {
+    border: 1px solid var(--clr-red);
+    color: var(--clr-white);
+    background-color: var(--clr-red);
+}
+
+/* Font Colors */
+.text-red{
+    color: var(--clr-red);
+}
+
+.text-blue {
+    color: var(--clr-blue);
+}
+
+.text-green {
+    color: green;
 }
 
 /* Navbar */
@@ -137,7 +170,7 @@ nav {
     min-width: 280px;
     min-height: 375px;
     max-width: 360px;
-    max-height: 455px;
+    max-height: 550px;
     background-color: var(--clr-light-grey);   
 }
 
@@ -193,7 +226,7 @@ nav {
     max-width: 555px;
     max-height: 590px; */
     width: 45%;
-    max-height: 590px;
+    max-height: 690px;
     background-color: var(--clr-light-grey);   
 }
 
