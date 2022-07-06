@@ -1,0 +1,256 @@
+*, 
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Utility Classes */
+
+:root {
+
+    /* Font Family */
+    --ff-primary: 'Roboto', sans-serif;
+
+    /* Font Size */
+    --fs-h1: 4rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+
+
+    /* colours */
+    --clr-dark-grey: rgb(56, 62, 73);
+    --clr-light-grey:#d1d1d188;
+    --clr-white: #ffffff;
+
+
+    
+    
+    
+}   
+
+body {
+    font-family: var(--ff-primary);
+}
+
+
+.btn {
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    padding: 15px 30px;
+    color: var(--clr-dark-grey);
+}
+
+/* Navbar */
+
+nav {
+    height: 80px;
+    width: 100%;
+    background-color: var(--clr-dark-grey);
+    
+}
+
+.nav__links--container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav__links--item {
+    list-style: none;
+    margin: 5px;
+}
+
+.nav__links--item a {
+    text-decoration: none;
+    color: var(--clr-white);
+    border: 1px solid var(--clr-white);
+    padding: 10px;
+}
+.nav__links--item a:hover {
+    text-decoration: none;
+    color: var(--clr-white);
+    border: 1px solid var(--clr-white);
+    background-color: var(--clr-light-grey);
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+/* Hero Section */
+
+#hero {
+    height: 550px;
+    width: 100%;
+}
+
+.hero__container {
+    height: 100%;
+    width: 100%;
+    background-image: url('/static/images/hero-image.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero__title {
+    color: var(--clr-white);
+    text-transform: uppercase;
+    font-size: var(--fs-h1);
+    
+}
+
+.hero__subtitle {
+    color: var(--clr-white);
+    font-size: var(--fs-h3);
+}
+
+/* about section */
+#about {
+    height: 800px;
+    width: 100%;
+}
+
+.about__container {
+    height: 100%;
+    width: 100%;
+    padding: 4rem 8rem;
+}
+
+/* about-1 */
+.about-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.about-1__item {
+    min-width: 280px;
+    min-height: 375px;
+    max-width: 360px;
+    max-height: 455px;
+    background-color: var(--clr-light-grey);   
+}
+
+.about-1__item--image {
+    width: 100%;
+    height: 35%;
+    margin-bottom: 15px;
+}
+
+.about-1__item--container {
+    height: 65%;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 0 15px 80px 15px;
+}
+
+.about-1__item--title {
+    font-size: var(--fs-h3);
+    margin-bottom: 15px;
+}
+
+.about-1__item--description {
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.about-1__item--link {
+    text-decoration: none;
+    margin: 0 auto;
+    
+}
+
+/* about -- about-2 */
+
+.about-2 {
+    width: 100%;
+    height: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+    
+}
+
+.about-2__item {
+    /* min-width: 400px;
+    min-height: 450px;
+    max-width: 555px;
+    max-height: 590px; */
+    width: 45%;
+    max-height: 590px;
+    background-color: var(--clr-light-grey);   
+}
+
+.about-2__item--image {
+    width: 100%;
+    height: 280px;
+    background-size: contain;
+    
+}
+
+.about-2__item--container {
+    height: 100%;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 0 15px 80px 15px;
+}
+
+.about-2__item--title {
+    font-size: var(--fs-h3);
+    margin-bottom: 15px;
+    margin: 15px auto 15px auto;
+}
+
+.about-2__item--description {
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.about-2__item--link {
+    text-decoration: none;
+    margin: 0 auto;
+    
+}
+
+/* Section Services */
+
+#services {
+    width: 100%;
+    height: 1000px;
+
+}
+
+.services__hero--container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 320px;
+    background: url('/static/images/services-hero.jpg') cover no-repeat; 
+}
+
+
+
+
+
