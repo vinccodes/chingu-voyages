@@ -84,6 +84,7 @@ nav {
     height: 80px;
     width: 100%;
     background-color: var(--clr-dark-grey);
+    position: sticky;
     
 }
 
@@ -484,3 +485,34 @@ nav {
     
 }
 
+footer {
+    width: 100%;
+    height: 400px;
+    padding: 25px;
+    text-align: center;
+    color: rgb(133, 133, 133);
+}
+
+.footer__container {
+    padding: 25px;
+    height: 50;
+    border-bottom: 1px solid var(--clr-light-grey);
+}
+.footer__title {
+    
+    font-style: italic;
+    font-size: var(--fs-h2);
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.footer__text {
+    line-height: 1.4;
+    margin-bottom: 30px;
+}
+
+
+.footer__copyright {
+    margin-top: 25px;
+    font-size: 0.8rem;
+}
