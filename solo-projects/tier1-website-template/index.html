@@ -149,22 +149,25 @@
     <!-- Contact Form -->
     <section id="contact">
         <div class="contact__container">
-            <h2>Contact Form</h2>
-            <p>For any questions, concerns and inquries please send us a message!</p>
+            <h2 class="contact__title">Contact Form</h2>
+            <p class="contact__description">For any questions, concerns and inquries please send us a message! Your feedback is greatly appreciated!</p>
+            <div class="contact__container--form">
+                <form class="contact__form" action="#">
+                    <div class="form__flex--container">
+                        <div class="contact__form--group__left">
+                            <input type="text" name="name" placeholder="Name">
+                            <input type="email" name="email" placeholder="Email">
+                            <input type="text" name="subject" placeholder="Subject">
+                        </div>
+                        <div class="contact__form--group__right">
+                            <textarea class="contact__form--message" name="message" id="" cols="40" rows="6" placeholder="Your message here..."></textarea>
+                            <button class="contact__form--submit__btn" type="submit">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
         
-        <form action="#">
-            <div class="form-inputs">
-                <input type="text" name="name">
-                <input type="email" name="email">
-                <input type="text" name="subject">
-            </div>
-            <div class="form-message">
-                <textarea name="message" id="" cols="30" rows="10"></textarea>
-                <button type="submit">Send</button>
-            </div>
-
-        </form>
     </section>
     <section id="">
         <h2>Use it free!</h2>

@@ -274,7 +274,7 @@ nav {
 
 #services {
     width: 100%;
-    height: 3000px;
+    height: 1700px;
 
 }
 
@@ -374,10 +374,113 @@ nav {
 
 #contact {
     width: 100%;
-    height: 1200px;
-
+    height: 580px;
+    background-image: url('/static/images/contact-background-1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    
 }
 
 .contact__container{
+    width: 100%;
+    height: 100%;
+    max-width: 760px;
+    margin: 0 auto;
     padding: 80px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
 }
+
+.contact__title {
+    color: var(--clr-white);
+    font-size: var(--fs-h2);
+}
+
+.contact__description {
+    width: 100%;
+    background-color:rgba(242,242,242,0.6);
+    margin-top: 25px;
+    padding: 25px;
+}
+
+
+.contact__container--form {
+    width: 100%;
+    height: 220px;
+}
+
+/* form element */
+.contact__form {
+    width: 100%;
+    margin-top: 20px;
+    
+    
+}
+
+.form__flex--container {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+
+    
+}
+
+.contact__form--group__left {
+   
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.contact__form--group__left input {
+    width: 100%;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    background-color:rgba(242,242,242,0.6);
+}
+
+.contact__form--group__right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+
+.contact__form--message {
+    border-radius: 5px;
+    background-color:rgba(242,242,242,0.6);
+    margin-bottom: 20px;
+    padding: 5px 10px;
+    font-family: var(--ff-primary);
+    
+}
+
+.contact__form--submit__btn {
+    margin: 0 auto 0 0;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 7px;
+    border: 1px solid var(--clr-white);
+    background-color: black;
+    color: var(--clr-white);
+
+    transition: border 1s, background-color 1s, color 1s;
+}
+
+.contact__form--submit__btn:hover {
+    
+    border: 1px solid black;
+    background-color: var(--clr-white);
+    color: black;
+    
+}
+
