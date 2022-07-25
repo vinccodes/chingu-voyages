@@ -12,13 +12,16 @@
 
     /* Font weight*/
     --fw-reg: 300;
+    --fw-bold: 700;
     
 
     /* Colors */
     --clr-lightgrey: #7F8487;
     --clr-ivory: #f1f1f1;
     --clr-brightblue: #34B3F1;
+    --clr-red: #DA1212;
     --clr-white: #ffffff;
+
 
     /* Margins */
     --container: 25px 50px;
@@ -103,3 +106,58 @@ nav {
     margin-bottom: 10px;
 }
 
+/* Notes Section */
+
+.container__notes {
+
+}
+
+.note__item {
+    max-width: 33vw;
+    border: 1px solid var(--clr-ivory);
+    border-radius: 5px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.note__item--title {
+    font-weight: var(--fw-bold);
+    background-color: var(--clr-ivory);
+    padding: 15px;
+}
+
+.note__item--body {
+    padding: 15px;
+}
+
+.note__item--links__container {
+    background-color: var(--clr-ivory);
+    padding: 10px;
+    
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.note__item--link {
+    text-decoration: none;
+    margin-right: 50px;
+}
+
+.link__container--left {
+    width: 100%;
+    text-align: left;
+}
+
+.note__item--link--edit {
+    color: var(--clr-brightblue);
+    
+}
+.link__container--right {
+    width: 100%;
+    text-align: left;
+}
+.note__item--link--delete {
+    color: var(--clr-red);
+    
+}

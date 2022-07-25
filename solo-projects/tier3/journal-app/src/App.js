@@ -21,7 +21,7 @@ function App() {
         <Navbar logo="Digital Journal" subtitle=" | Create a Note"/>
       </header>
       <AddNoteForm/>
-      <div>
+      <div class="container__notes">
         {allNotes}
       </div>
     </div>
