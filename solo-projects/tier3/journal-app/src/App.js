@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import './styles.css';
 import data from './data'
 import {Navbar, AddNoteForm, Note} from './components'
 
@@ -17,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <Navbar logo="Digital Journal" subtitle="| Create a Note"/>
+        <Navbar logo="Digital Journal" subtitle=" | Create a Note"/>
       </header>
       <AddNoteForm/>
       <div>
