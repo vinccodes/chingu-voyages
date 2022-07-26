@@ -12,10 +12,11 @@ function App() {
 
   
   const handleLoginChange = (event)=>{
-    if (event.target.username === "username") {
+    console.log(event.target)
+    if (event.target.name === "username") {
       setUsername(event.target.value)
     }
-    else if (event.target.password === "password") {
+    else if (event.target.name === "password") {
       setPassword(event.target.value)
     }
   }
