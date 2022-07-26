@@ -109,7 +109,11 @@ nav {
 /* Notes Section */
 
 .container__notes {
-
+    overflow-y: scroll;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .note__item {
@@ -161,3 +165,4 @@ nav {
     color: var(--clr-red);
     
 }
+
