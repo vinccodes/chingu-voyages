@@ -1,0 +1,31 @@
+### GET ALL NOTES
+
+GET http://localhost:3001/api/notes
+
+
+### GET SINGLE NOTE
+GET http://localhost:3001/api/notes/62e972a967dfa1fa34722a16
+
+
+### CREATE A NOTE 
+POST http://localhost:3001/api/notes
+Content-Type: application/json 
+
+{
+    
+    "body": "something goes here in the body field"
+}
+
+
+### UPDATE SINGLE NOTE 
+PUT http://localhost:3001/api/notes/62e972a967dfa1fa34722a16
+Content-Type: application/json 
+
+{
+    "title": "2nd time updated first post",
+    "body": "2nd time updated body of first post"
+}
+
+
+### DELETE SINGLE NOTE
+DELETE http://localhost:3001/api/notes/62e972a967dfa1fa34722a16

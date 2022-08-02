@@ -1,25 +1,36 @@
 const Note = require('../models/Note')
 
 module.exports = {
-    getAllNotes: async(req, res)=>{
+    getAllNotes: async(req, res, next)=>{
         try {
             const notes = await Note.find({})
             res.json({notes})
         }
-        catch(err){if (err) { console.log(err)}}
+        catch(err){if (err) { next(err)}}
     },
-    getSingleNote: async(req, res)=>{
+    getSingleNote: async(req, res, next)=>{
         try {
             const singleNote = await Note.findById(req.params.id)
             res.json({singleNote})
         }
-        catch(err){if (err) { console.log(err)}}
+        catch(err){
+            if (err) { 
+                next(err)
+            }
+        }
     },
-    createNote: async(req, res)=>{
+    createNote: async(req, res, next)=>{
         try{
             // get the note object from the body 
             const { title, body } = req.body
-
+            
+            if (!title || !body){
+                const error = {
+                    message: "Missing title or body",
+                    status: 400
+                }
+                next(error)
+            }
             const newNote = new Note({
                 title, 
                 body
@@ -32,9 +43,13 @@ module.exports = {
                 note: savedNote
             })
         }
-        catch(err){if (err) { console.log(err)}}
+        catch(err){
+            if (err) { 
+                next(err)
+            }
+        }
     },
-    updateNote: async(req, res) =>{
+    updateNote: async(req, res, next) =>{
         try{
 
             const { title, body } = req.body
@@ -42,7 +57,7 @@ module.exports = {
             const updatedNote = await Note.findByIdAndUpdate(req.params.id, {
                 title,
                 body
-            })
+            }, {new: true})
 
             
 
@@ -51,9 +66,13 @@ module.exports = {
                 note: updatedNote
             })
         }
-        catch(err){if (err) { console.log(err)}}
+        catch(err){
+            if (err) { 
+                next(err)
+            }
+        }
     },
-    deleteNote: async(req, res) =>{
+    deleteNote: async(req, res, next) =>{
         try{
             
             const deletedNote = await Note.findByIdAndRemove(req.params.id, {new: true})
@@ -62,6 +81,10 @@ module.exports = {
                 note: deletedNote
             })
         }
-        catch(err){if (err) { console.log(err)}}
+        catch(err){
+            if (err) { 
+                next(err)
+            }
+        }
     }
 }
