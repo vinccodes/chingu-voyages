@@ -41,7 +41,6 @@ module.exports = {
             // generate password hash 
             const passwordHash = hashPassword(password)
 
-
             const newUser = new User({
                 username,
                 name,
@@ -73,8 +72,6 @@ module.exports = {
                 name,
                 passwordHash
             }, {new: true})
-
-            
 
             res.json({
                 message: 'user updated',

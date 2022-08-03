@@ -24,6 +24,7 @@ app.use(cors())
 app.use(morgan(':method :url :status - :response-time ms'))
 
 // Routes
+app.use('/auth', authRoutes)
 app.use('/api/notes', noteRoutes)
 app.use('/api/users', userRoutes)
 
