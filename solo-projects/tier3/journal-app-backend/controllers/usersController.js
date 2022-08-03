@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 module.exports = {
     getAllUsers: async(req, res, next)=>{
         try {
-            const users = await User.find({})
+            const users = await User.find({}).populate('notes', { title: 1, createdAt: 1})
             res.json({users})
         }
         catch(err){
@@ -15,7 +15,7 @@ module.exports = {
     },
     getSingleUser: async(req, res, next)=>{
         try {
-            const singleUser = await User.findById(req.params.id)
+            const singleUser = await User.findById(req.params.id).populate('notes', { title: 1, createdAt: 1 })
             res.json({singleUser})
         }
         catch(err){

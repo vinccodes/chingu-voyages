@@ -12,8 +12,9 @@ POST http://localhost:3001/api/notes
 Content-Type: application/json 
 
 {
-    "title": "test note 2",
-    "body": "test note 2"
+    "title": "first note of sam123",
+    "body": "first note of sam123",
+    "userId": "62e9f457657761e5359fc61e"
 }
 
 
@@ -28,7 +29,7 @@ Content-Type: application/json
 
 
 ### DELETE SINGLE NOTE
-DELETE http://localhost:3001/api/notes/62e972a967dfa1fa34722a16
+DELETE http://localhost:3001/api/notes/62eacf653cbf8538ed5f05f3
 
 
 ### ==== USERS ====
@@ -44,8 +45,8 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-    "username": "devtest2",
-    "name": "Dev Test2",
+    "username": "sam123",
+    "name": "sam test",
     "password": "helloworld"
 }
 
@@ -54,11 +55,11 @@ PUT http://localhost:3001/api/users/62e9ec55316ef62e4caf26f2
 Content-Type: application/json 
 
 {
-    "username": "",
-    "name": "",
-    "password": ""
+    "username": "devtest2",
+    "name": "Bob Bob",
+    "password": "password"
 }
 
 
 ### DELETE A USER
-DELETE http://localhost:3001/api/users/62e9ec55316ef62e4caf26f2
+DELETE http://localhost:3001/api/users/
