@@ -1,5 +1,6 @@
 const User = require('../models/User')
 const bcrypt = require('bcrypt')
+const { hashPassword } = require('../utils/helpers')
 
 module.exports = {
     getAllUsers: async(req, res, next)=>{
@@ -38,8 +39,7 @@ module.exports = {
             }
 
             // generate password hash 
-            const saltRounds = 10
-            const passwordHash = await bcrypt.hash(password, saltRounds)
+            const passwordHash = hashPassword(password)
 
 
             const newUser = new User({
@@ -66,9 +66,7 @@ module.exports = {
 
             const { username, name, password } = req.body
             
-            const saltRounds = 10
-            const passwordHash = await bcrypt.hash(password, saltRounds)
-
+            const passwordHash = hashPassword(password)
 
             const updatedUser = await User.findByIdAndUpdate(req.params.id, {
                 username,
