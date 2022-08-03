@@ -1,10 +1,12 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
+const cors = require('cors')
 const noteRoutes = require('./routes/noteRoutes')
 const userRoutes = require('./routes/userRoutes')
 const errorHandler = require('./middlewares/errorHandler')
 const connectDB = require('./config/database')
+
 const app = express()
 
 const PORT = process.env.PORT || 3001
@@ -18,7 +20,7 @@ connectDB()
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
-
+app.use(cors())
 app.use(morgan(':method :url :status - :response-time ms'))
 
 // Routes
