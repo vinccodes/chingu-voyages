@@ -12,8 +12,8 @@ POST http://localhost:3001/api/notes
 Content-Type: application/json 
 
 {
-    
-    "body": "something goes here in the body field"
+    "title": "test note 2",
+    "body": "test note 2"
 }
 
 
@@ -29,3 +29,36 @@ Content-Type: application/json
 
 ### DELETE SINGLE NOTE
 DELETE http://localhost:3001/api/notes/62e972a967dfa1fa34722a16
+
+
+### ==== USERS ====
+
+### GET ALL USERS
+GET http://localhost:3001/api/users
+
+### GET SINGLE USER
+GET http://localhost:3001/api/users/62e9ec55316ef62e4caf26f2
+
+### CREATE A USER
+POST http://localhost:3001/api/users 
+Content-Type: application/json
+
+{
+    "username": "devtest2",
+    "name": "Dev Test2",
+    "password": "helloworld"
+}
+
+### UPDATE A USER
+PUT http://localhost:3001/api/users/62e9ec55316ef62e4caf26f2
+Content-Type: application/json 
+
+{
+    "username": "",
+    "name": "",
+    "password": ""
+}
+
+
+### DELETE A USER
+DELETE http://localhost:3001/api/users/62e9ec55316ef62e4caf26f2
