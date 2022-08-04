@@ -1,6 +1,7 @@
 const User = require('../models/User')
+const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-require('dotenv').config({path: '../config/.env'})
+require('dotenv').config({path: '../config/'})
 
 
 module.exports = {
@@ -31,13 +32,12 @@ module.exports = {
                 }
                 next(error)
             }
-
-            // generate the token
-            const token = jwt.sign({
+            const tokenPayload = {
                 username: foundUser.username,
                 id: foundUser._id
-            }, process.env.JWT_SECRET,
-            { expiresIn: '1h'})
+            }
+            // generate the token
+            const token = jwt.sign(tokenPayload, process.env.JWT_SECRET, { expiresIn: '1h'})
 
             res.json({
                 token,

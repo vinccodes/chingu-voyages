@@ -14,5 +14,16 @@ module.exports = {
                 return null
             }
         }
+    },
+    getBearerToken: (request)=>{
+        // get the "Bearer" token from request Authorization header
+        const token = request.get('Authorization')
+
+        // check if the token exists and follows Bearer scheme
+        if (token && token.toLowerCase().startsWith("bearer")) {
+            
+            return token.substring(7)
+        }
+        return null
     }
 }

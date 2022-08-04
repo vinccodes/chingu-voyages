@@ -1,5 +1,8 @@
 const Note = require('../models/Note')
 const User = require('../models/User')
+const { getBearerToken } = require('../utils/helpers')
+const jwt = require('jsonwebtoken')
+require('dotenv').config({path: '../config'})
 
 module.exports = {
     getAllNotes: async(req, res, next)=>{
@@ -23,12 +26,35 @@ module.exports = {
     createNote: async(req, res, next)=>{
         try{
             // get the note object from the body 
-            const { title, body, userId } = req.body
-        
+            const { title, body } = req.body
+
+            // get the token from the request 
+            const token = getBearerToken(req)
+            console.log(token)
+            // check the token
+            const tokenPayload = jwt.verify(token, process.env.JWT_SECRET)
+            console.log(tokenPayload)
+
+            // token payload undefined 
+            if (!tokenPayload.id) {
+                return res.status(400).json({
+                    error: res.status,
+                    message: "Missing or invalid token"
+                })
+            }
+
 
             // find the user
-            const foundUser = await User.findById(userId)
+            const foundUser = await User.findById(tokenPayload.id)
+            if (!foundUser) {
+                const error = {
+                    status: 400,
+                    message: "Unauthorized access to request"
+                }
+                next(error)
+            }
             
+
             if (!title || !body){
                 const error = {
                     message: "Missing title or body",
@@ -39,7 +65,7 @@ module.exports = {
             const newNote = new Note({
                 title, 
                 body,
-                user: userId
+                user: tokenPayload.id
             })
 
             const savedNote = await newNote.save()

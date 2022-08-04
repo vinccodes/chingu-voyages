@@ -9,12 +9,12 @@ GET http://localhost:3001/api/notes/62e972a967dfa1fa34722a16
 
 ### CREATE A NOTE 
 POST http://localhost:3001/api/notes
-Content-Type: application/json 
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbTEyMyIsImlkIjoiNjJlOWY0NTc2NTc3NjFlNTM1OWZjNjFlIiwiaWF0IjoxNjU5NjQ1MzE2LCJleHAiOjE2NTk2NDg5MTZ9.b_KwkQwaXuI31obRMZIRN360DoQMu3_-aL9FOeCfitk
 
 {
     "title": "first note of sam123",
-    "body": "first note of sam123",
-    "userId": "62e9f457657761e5359fc61e"
+    "body": "first note of sam123"
 }
 
 
@@ -63,3 +63,13 @@ Content-Type: application/json
 
 ### DELETE A USER
 DELETE http://localhost:3001/api/users/
+
+
+### ==== AUTH ROUTES ====
+POST http://localhost:3001/auth/login
+Content-Type: application/json 
+
+{
+    "username": "sam123",
+    "password": "helloworld"
+}
