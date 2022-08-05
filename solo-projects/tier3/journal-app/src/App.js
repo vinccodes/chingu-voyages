@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import './styles.css';
 import data from './data'
-import {Navbar, AddNoteForm, Note} from './components'
+import {Navbar, AddNoteForm, Note, LoginForm } from './components'
 
 function App() {
 
@@ -34,9 +34,9 @@ function App() {
 
     console.log('handleLogin username:', username)
     console.log('handleLogin password:', password)
+
+    // send request to /auth/login
   }
-
-
 
   // Map all Note objects retrieved from the server to JSX Note elements
   const allNotes = data.map(note =>{
@@ -54,27 +54,11 @@ function App() {
         <Navbar logo="Digital Journal" subtitle=" | Create a Note"/>
       </header>
 
-      <div className="container__login">
-        <form className="login__form" method="POST" onSubmit={handleLogin}>
-          <div className="form__group">
-            <label className="form__label" htmlFor="username">Username:</label>
-            <input className="form__field" 
-              type="text"
-              name="username" 
-              value={username}
-              onChange={handleLoginChange}></input>
-          </div>
-          <div className="form__group">
-            <label className="form__label" htmlFor="password">Password:</label>
-            <input className="form__field" 
-              type="password" 
-              name="password"
-              value={password}
-              onChange={handleLoginChange}></input>
-          </div>
-          <button className="form__btn btn__submit" type="submit">Submit</button>
-        </form>
-      </div>
+      <LoginForm 
+        username={username}
+        password={password}
+        handleLogin={handleLogin}
+        handleLoginChange={handleLoginChange} />
 
       <AddNoteForm/>
       <div className="container__notes">

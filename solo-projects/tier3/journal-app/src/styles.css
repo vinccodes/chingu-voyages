@@ -93,6 +93,11 @@ nav {
     margin: 15px;
 }
 
+/* LoginForm */
+.container__login {
+    margin: 50px;
+}
+
 /* AddNoteForm Component */
 
 .addNoteForm__container{

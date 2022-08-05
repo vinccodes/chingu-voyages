@@ -9,3 +9,4 @@
 export {default as Navbar} from './Navbar'
 export {default as AddNoteForm} from './AddNoteForm'
 export {default as Note} from './Note'
+export {default as LoginForm} from './LoginForm'
