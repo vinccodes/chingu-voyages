@@ -27,10 +27,9 @@ module.exports = {
             // get the note object from the body 
             const { title, body } = req.body
 
-            // get the token from the request.token
-            const token = req.token
+        
             console.log(token)
-            // check the token
+            // check the token from the request
             const user = req.user
 
             // token payload undefined 
@@ -87,18 +86,36 @@ module.exports = {
         try{
 
             const { title, body } = req.body
-            // find the note by id
-            const updatedNote = await Note.findByIdAndUpdate(req.params.id, {
-                title,
-                body
-            }, {new: true})
 
+            // get token from request
+            const user = req.user
+
+            // find the note
+            const foundNote = await Note.findById(req.params.id)
             
+            // check if note's owner (the user) matches the token.id 
+            if (foundNote.user.toString() == user.id){
+                // match owner, update the note
 
-            res.json({
-                message: 'note updated',
-                note: updatedNote
-            })
+                // update the note
+                const updatedNote = await foundNote.updateOne({
+                    title,
+                    body
+                }, {returnOriginal: false})
+
+                res.json({
+                    message: 'note updated',
+                    note: updatedNote
+                })
+
+                
+            }
+            else {
+                res.status(401).json({
+                    message: "unauthorized. missing or invalid token"
+                })
+            }
+
         }
         catch(err){
             if (err) { 
@@ -109,11 +126,29 @@ module.exports = {
     deleteNote: async(req, res, next) =>{
         try{
             
-            const deletedNote = await Note.findByIdAndRemove(req.params.id, {new: true})
-            res.json({
-                message: 'deleted note',
-                note: deletedNote
-            })
+            // find the note
+            const noteToRemove = await Note.findById(req.params.id)
+
+            // get the user 
+            const user = req.user
+
+            // check if user.id matches note.user ObjectID
+            if (noteToRemove.user.toString() == user.id){
+                // match, delete note
+                const deletedNote = await noteToRemove.deleteOne({new: true})
+
+                res.status(204).json({
+                    message: 'deleted note',
+                    note: deletedNote
+                })
+                
+            }
+            else {
+                res.status(401).json({
+                    message: "Unauthorized. Missing or invalid token"
+                })
+            }
+           
         }
         catch(err){
             if (err) { 

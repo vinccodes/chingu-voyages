@@ -10,7 +10,7 @@ GET http://localhost:3001/api/notes/62e972a967dfa1fa34722a16
 ### CREATE A NOTE 
 POST http://localhost:3001/api/notes
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbTEyMyIsImlkIjoiNjJlOWY0NTc2NTc3NjFlNTM1OWZjNjFlIiwiaWF0IjoxNjU5NjczMjk2LCJleHAiOjE2NTk2NzY4OTZ9.ybSK1KN4y9CcbKYb6K-Lm0d8P2bomwWTiV2B2BGcAQw
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbTEyMyIsImlkIjoiNjJlOWY0NTc2NTc3NjFlNTM1OWZjNjFlIiwiaWF0IjoxNjU5Njc2MjQxLCJleHAiOjE2NTk2Nzk4NDF9.LLDks4e4lfuO4_wkZV6RQo27IWuD-TQ7Sx3Ln5q4vzg
 
 {
     "title": "created note using tokenExtractor middleware",
@@ -19,18 +19,19 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhb
 
 
 ### UPDATE SINGLE NOTE 
-PUT http://localhost:3001/api/notes/62e972a967dfa1fa34722a16
+PUT http://localhost:3001/api/notes/62eca662d883b7969b8c8a76
 Content-Type: application/json 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbTEyMyIsImlkIjoiNjJlOWY0NTc2NTc3NjFlNTM1OWZjNjFlIiwiaWF0IjoxNjU5Njc3MjgwLCJleHAiOjE2NTk2ODA4ODB9._t0eMTd8S-JW8GpqIMtxbLeeyJVWzK2jgAKCL1qiS5Q
 
 {
-    "title": "2nd time updated first post",
-    "body": "2nd time updated body of first post"
+    "title": "updated note return orignal: false -sam123",
+    "body": "updated the body"
 }
 
 
 ### DELETE SINGLE NOTE
 DELETE http://localhost:3001/api/notes/62eadadadcaea7bf7d472820
-
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbTEyMyIsImlkIjoiNjJlOWY0NTc2NTc3NjFlNTM1OWZjNjFlIiwiaWF0IjoxNjU5Njc3MjgwLCJleHAiOjE2NTk2ODA4ODB9._t0eMTd8S-JW8GpqIMtxbLeeyJVWzK2jgAKCL1qiS5Q
 
 ### ==== USERS ====
 

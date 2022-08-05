@@ -6,8 +6,8 @@ const { tokenExtractor, userExtractor } = require('../middlewares/middleware')
 router.get('/', notesController.getAllNotes)
 router.get('/:id', notesController.getSingleNote)
 router.post('/', tokenExtractor, userExtractor, notesController.createNote)
-router.put('/:id', notesController.updateNote)
-router.delete('/:id', notesController.deleteNote)
+router.put('/:id', tokenExtractor, userExtractor, notesController.updateNote)
+router.delete('/:id', tokenExtractor, userExtractor, notesController.deleteNote)
 
 
 module.exports = router 
