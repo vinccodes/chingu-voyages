@@ -38,6 +38,15 @@ module.exports = {
                 next(error)
             }
 
+            // check if username already exists
+            const existingUser = await User.findOne({ username })
+            if (existingUser) {
+                return res.status(400).json({
+                    message: "username already exists"
+                })
+            }
+            
+
             // generate password hash 
             const passwordHash = hashPassword(password)
 
