@@ -10,11 +10,11 @@ GET http://localhost:3001/api/notes/62e972a967dfa1fa34722a16
 ### CREATE A NOTE 
 POST http://localhost:3001/api/notes
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbTEyMyIsImlkIjoiNjJlOWY0NTc2NTc3NjFlNTM1OWZjNjFlIiwiaWF0IjoxNjU5NjQ1MzE2LCJleHAiOjE2NTk2NDg5MTZ9.b_KwkQwaXuI31obRMZIRN360DoQMu3_-aL9FOeCfitk
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbTEyMyIsImlkIjoiNjJlOWY0NTc2NTc3NjFlNTM1OWZjNjFlIiwiaWF0IjoxNjU5NjcyOTMwLCJleHAiOjE2NTk2NzY1MzB9.RDy03tub7M1TLjiqlIiX5aya3NVoxW5BRo7fPHajGyQ
 
 {
-    "title": "first note of sam123",
-    "body": "first note of sam123"
+    "title": "created note using tokenExtractor middleware",
+    "body": "some body goes here"
 }
 
 

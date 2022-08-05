@@ -28,8 +28,8 @@ module.exports = {
             // get the note object from the body 
             const { title, body } = req.body
 
-            // get the token from the request 
-            const token = getBearerToken(req)
+            // get the token from the request.token
+            const token = req.token
             console.log(token)
             // check the token
             const tokenPayload = jwt.verify(token, process.env.JWT_SECRET)
