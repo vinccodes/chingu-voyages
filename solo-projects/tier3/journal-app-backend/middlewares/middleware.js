@@ -1,4 +1,5 @@
-const { request } = require("express")
+const jwt = require('jsonwebtoken')
+require('dotenv').config({path: '../config'})
 
 module.exports = {
     // get the token from the authorization header and set the token to request.token
@@ -11,6 +12,13 @@ module.exports = {
         else {
             req.token = null 
         }
+        next()
+    },
+    userExtractor: (req, res, next) =>{
+        // verify the jwt token from the req.token 
+        const tokenPayload = jwt.verify(req.token, process.env.JWT_SECRET)
+        // set req.user 
+        req.user = tokenPayload
         next()
     }
 

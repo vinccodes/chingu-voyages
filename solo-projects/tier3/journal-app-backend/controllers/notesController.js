@@ -1,6 +1,5 @@
 const Note = require('../models/Note')
 const User = require('../models/User')
-const { getBearerToken } = require('../utils/helpers')
 const jwt = require('jsonwebtoken')
 require('dotenv').config({path: '../config'})
 
@@ -32,11 +31,10 @@ module.exports = {
             const token = req.token
             console.log(token)
             // check the token
-            const tokenPayload = jwt.verify(token, process.env.JWT_SECRET)
-            console.log(tokenPayload)
+            const user = req.user
 
             // token payload undefined 
-            if (!tokenPayload.id) {
+            if (!user.id) {
                 return res.status(400).json({
                     error: res.status,
                     message: "Missing or invalid token"
@@ -45,7 +43,7 @@ module.exports = {
 
 
             // find the user
-            const foundUser = await User.findById(tokenPayload.id)
+            const foundUser = await User.findById(user.id)
             if (!foundUser) {
                 const error = {
                     status: 400,
@@ -65,7 +63,7 @@ module.exports = {
             const newNote = new Note({
                 title, 
                 body,
-                user: tokenPayload.id
+                user: user.id
             })
 
             const savedNote = await newNote.save()
@@ -74,7 +72,7 @@ module.exports = {
             console.log
             await foundUser.save()
 
-            res.json({
+            res.status(201).json({
                 message: 'new note created',
                 note: savedNote
             })
