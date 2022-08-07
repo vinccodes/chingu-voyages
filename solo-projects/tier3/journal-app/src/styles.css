@@ -116,27 +116,32 @@ nav {
 .container__notes {
     overflow-y: scroll;
     margin: 0 auto;
+    padding: 50px;
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .note__item {
     max-width: 33vw;
-    border: 1px solid var(--clr-ivory);
+    border: 1px solid var(--clr-lightgrey);
     border-radius: 5px;
     text-align: left;
-    margin-bottom: 15px;
+    margin: 0 15px;
+    
+    
 }
 
 .note__item--title {
     font-weight: var(--fw-bold);
     background-color: var(--clr-ivory);
     padding: 15px;
+    border-bottom: 1px solid var(--clr-lightgrey);
 }
 
 .note__item--body {
     padding: 15px;
+    border-bottom: 1px solid var(--clr-lightgrey);
 }
 
 .note__item--links__container {

@@ -4,11 +4,13 @@ import './App.css';
 import './styles.css';
 import data from './data'
 import {Navbar, AddNoteForm, Note, LoginForm } from './components'
+import loginService from './services/loginService'
 
 function App() {
 
   const [username, setUsername] = React.useState("")
   const [password, setPassword] = React.useState("")
+  const [currentUser, setCurrentUser] = React.useState(null)
 
   
   const handleLoginChange = (event)=>{
@@ -25,17 +27,27 @@ function App() {
   console.log('password', password)
 
   // Login handler
-  const handleLogin = (event)=>{
+  const handleLogin = async(event)=>{
 
     event.preventDefault()
     // get the username and password from the form
     const username = event.target.username.value
     const password = event.target.password.value
 
-    console.log('handleLogin username:', username)
-    console.log('handleLogin password:', password)
+    
+    
+    try {
+      // send request to /auth/login
+      const user = await loginService.login({username, password})
+      setCurrentUser(user)
+      setUsername('')
+      setPassword('')
 
-    // send request to /auth/login
+    }
+    catch(err){
+      console.log('wrong credentials ', err)
+    }
+    
   }
 
   // Map all Note objects retrieved from the server to JSX Note elements
