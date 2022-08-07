@@ -39,6 +39,7 @@ function App() {
     try {
       // send request to /auth/login
       const user = await loginService.login({username, password})
+      // TODO
       setCurrentUser(user)
       setUsername('')
       setPassword('')
