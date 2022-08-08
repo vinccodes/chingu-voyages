@@ -17,11 +17,11 @@ const getAllNotes = () =>{
 //     return axios.get(NOTES_URL+'notes/')
 // }
 
-const createNote = (noteObject) =>{
+const createNote = async(noteObject) =>{
     const config = {
         headers: { Authorization: token }
     }
-    const response = axios.post(NOTES_URL, noteObject, config)
+    const response = await axios.post(NOTES_URL, noteObject, config)
     return response.data
 }
 

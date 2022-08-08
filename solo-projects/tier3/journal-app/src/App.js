@@ -10,8 +10,8 @@ function App() {
 
   const [username, setUsername] = React.useState("")
   const [password, setPassword] = React.useState("")
-  const [currentUser, setCurrentUser] = React.useState(null)
-  const [errorMessage, setErrorMessage] = React.useState("Please login.")
+  const [currentUser, setCurrentUser] = React.useState({name: "bobTest"})
+  const [errorMessage, setErrorMessage] = React.useState(null)
 
   
   const handleLoginChange = (event)=>{
@@ -48,6 +48,10 @@ function App() {
     }
     catch(err){
       console.log('wrong credentials ', err)
+      setErrorMessage('Wrong credentials')
+      setTimeout(()=>{
+        setErrorMessage(null)
+      }, 5000)
     }
     
   }
@@ -72,18 +76,27 @@ function App() {
         message={errorMessage}
         />
       }
-      { currentUser !== null &&  
+
+      
+
+      { currentUser === null ?
       <LoginForm 
         username={username}
         password={password}
         handleLogin={handleLogin}
         handleLoginChange={handleLoginChange} />
+      :
+      <div>
+        <p>{currentUser.name} logged in</p>
+        <AddNoteForm/>
+      </div>
+      
       }
 
-      <AddNoteForm/>
       <div className="container__notes">
         {allNotes}
       </div>
+      
     </div>
   );
 }
