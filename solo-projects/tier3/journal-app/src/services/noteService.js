@@ -2,6 +2,13 @@ import axios from 'axios'
 
 const NOTES_URL = "http://localhost:3000/api/notes"
 
+let token = null
+
+
+const setToken = newToken =>{
+    token = `bearer ${newToken}`
+}
+
 const getAllNotes = () =>{
     return axios.get(NOTES_URL)
 }
@@ -11,7 +18,11 @@ const getAllNotes = () =>{
 // }
 
 const createNote = (noteObject) =>{
-    return axios.post(NOTES_URL)
+    const config = {
+        headers: { Authorization: token }
+    }
+    const response = axios.post(NOTES_URL, noteObject, config)
+    return response.data
 }
 
 const updateNote = (noteObject) =>{
@@ -23,6 +34,7 @@ const deleteNote = (noteObject) =>{
 }
 
 export default {
+    setToken,
     getAllNotes,
     createNote,
     updateNote,

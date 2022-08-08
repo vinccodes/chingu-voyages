@@ -11,7 +11,7 @@ function App() {
   const [username, setUsername] = React.useState("")
   const [password, setPassword] = React.useState("")
   const [currentUser, setCurrentUser] = React.useState(null)
-  const [errorMessage, setErrorMessage] = React.useState("test error message")
+  const [errorMessage, setErrorMessage] = React.useState("Please login.")
 
   
   const handleLoginChange = (event)=>{
@@ -72,11 +72,13 @@ function App() {
         message={errorMessage}
         />
       }
+      { currentUser !== null &&  
       <LoginForm 
         username={username}
         password={password}
         handleLogin={handleLogin}
         handleLoginChange={handleLoginChange} />
+      }
 
       <AddNoteForm/>
       <div className="container__notes">
