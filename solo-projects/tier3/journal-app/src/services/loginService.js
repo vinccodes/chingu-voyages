@@ -5,3 +5,7 @@ const login = (config) =>{
     // send http post request to /auth/login 
     return axios.post(LOGIN_URI, config)
 }
+
+export default {
+    login
+}

@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import './styles.css';
 import data from './data'
-import {Navbar, AddNoteForm, Note, LoginForm } from './components'
+import {Navbar, Notification, AddNoteForm, Note, LoginForm } from './components'
 import loginService from './services/loginService'
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
   const [username, setUsername] = React.useState("")
   const [password, setPassword] = React.useState("")
   const [currentUser, setCurrentUser] = React.useState(null)
+  const [errorMessage, setErrorMessage] = React.useState("test error message")
 
   
   const handleLoginChange = (event)=>{
@@ -66,7 +67,11 @@ function App() {
       <header>
         <Navbar logo="Digital Journal" subtitle=" | Create a Note"/>
       </header>
-
+      { errorMessage !== null && 
+      <Notification
+        message={errorMessage}
+        />
+      }
       <LoginForm 
         username={username}
         password={password}
