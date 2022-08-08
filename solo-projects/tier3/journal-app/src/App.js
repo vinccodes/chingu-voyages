@@ -3,17 +3,19 @@ import logo from './logo.svg';
 import './App.css';
 import './styles.css';
 import data from './data'
-import {Navbar, Notification, AddNoteForm, Note, LoginForm } from './components'
+import { Navbar, Notification, AddNoteForm, Note, LoginForm } from './components'
 import loginService from './services/loginService'
+import noteService from './services/noteService'
 
 function App() {
 
   const [username, setUsername] = React.useState("")
   const [password, setPassword] = React.useState("")
-  const [currentUser, setCurrentUser] = React.useState({name: "bobTest"})
+  const [currentUser, setCurrentUser] = React.useState(null)
   const [errorMessage, setErrorMessage] = React.useState(null)
 
-  
+  console.log(currentUser)
+
   const handleLoginChange = (event)=>{
     console.log(event.target)
     if (event.target.name === "username") {
@@ -35,13 +37,12 @@ function App() {
     const username = event.target.username.value
     const password = event.target.password.value
 
-    
-    
     try {
       // send request to /auth/login
       const user = await loginService.login({username, password})
       // TODO
-      setCurrentUser(user)
+      noteService.setToken(user.data.token)
+      setCurrentUser(user.data)
       setUsername('')
       setPassword('')
 
@@ -87,7 +88,7 @@ function App() {
         handleLoginChange={handleLoginChange} />
       :
       <div>
-        <p>{currentUser.name} logged in</p>
+        <p>{currentUser.username} logged in</p>
         <AddNoteForm/>
       </div>
       

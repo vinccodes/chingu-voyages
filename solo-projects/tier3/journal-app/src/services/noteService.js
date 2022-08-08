@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const NOTES_URL = "http://localhost:3000/api/notes"
+const NOTES_URL = process.env.REACT_APP_BASE_URL_LOCAL+"/api/notes"
 
 let token = null
 
@@ -40,3 +40,4 @@ export default {
     updateNote,
     deleteNote,
 }
+
