@@ -18,14 +18,19 @@ const AddNoteForm = (props) =>{
     }
 
     // send note to server 
-    const submitNote = (event) =>{
+    const submitNote = async(event) =>{
         event.preventDefault()
         // get the title and body values from the form
         const title =  event.target.title.value
         const body = event.target.body.value
 
         // send POST request to server
-        
+        try {
+            await noteService.createNote({title, body})
+        }
+        catch(err){
+            console.log(err)
+        }
     }
 
     console.log('title: ', title)

@@ -14,7 +14,9 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState(null)
   const [errorMessage, setErrorMessage] = React.useState(null)
 
+  
   console.log(currentUser)
+  console.log('the token is', currentUser.token)
 
   const handleLoginChange = (event)=>{
     console.log(event.target)
@@ -41,8 +43,8 @@ function App() {
       // send request to /auth/login
       const user = await loginService.login({username, password})
       // TODO
-      noteService.setToken(user.data.token)
-      setCurrentUser(user.data)
+      noteService.setToken(user.token)
+      setCurrentUser(user)
       setUsername('')
       setPassword('')
 
@@ -77,8 +79,6 @@ function App() {
         message={errorMessage}
         />
       }
-
-      
 
       { currentUser === null ?
       <LoginForm 
